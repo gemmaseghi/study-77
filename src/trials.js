@@ -1,266 +1,338 @@
 const trials = [
 {
-    id: 1,
-    phase: "training",
-    condition: "fillercolor",
-    utterance: "La sedia blu",
-    item: "The blue chair",
-    image: "/stimuli/trial_01.png",
-    greyCell: "bottomLeft",
-    correctAnswer: "bottomRight"
+    trial_id: 1,
+
+    maze: [
+      ["purple",  "white", "white", "purple"],
+      ["green", "white", "orange", "white"],
+      ["white",  "white", "orange", "yellow"],
+      ["orange", "white", "white", "white"]
+    ],
+
+    start: [1, 0],
+    end: [2, 3],
+
+    min_cells: 5,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_1_todo.png",
+    opponent_image: "/stimuli/maze_1_done.png",
   },
 
 {
-    id: 2,
-    phase: "training",
-    condition: "filler",
-    utterance: "La macchina",
-    item: "The violet car",
-    image: "/stimuli/trial_02.png",
-    greyCell: "topRight",
-    correctAnswer: "topLeft"
+    trial_id: 2,
+
+    maze: [
+      ["purple",  "white", "orange", "orange"],
+      ["white", "purple", "white", "white"],
+      ["white",  "white", "white", "white"],
+      ["green", "white", "orange", "yellow"]
+    ],
+
+    start: [3, 0],
+    end: [3, 3],
+
+    min_cells: 4,
+
+    opponent_score: 2, 
+
+    maze_image: "/stimuli/maze_2_todo.png",
+    opponent_image: "/stimuli/maze_2_done.png",
   },
 
 {
-    id: 3,
-    phase: "training",
-    condition: "fillersize",
-    utterance: "Il gatto grande",
-    item: "The big orange cat",
-    image: "/stimuli/trial_03.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomLeft"
+    trial_id: 3,
+
+    maze: [
+      ["purple",  "white", "white", "purple"],
+      ["white", "white", "orange", "yellow"],
+      ["green",  "orange", "white", "white"],
+      ["purple", "white", "white", "orange"]
+    ],
+
+    start: [2, 0],
+    end: [1, 3],
+
+    min_cells: 5,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_3_todo.png",
+    opponent_image: "/stimuli/maze_3_done.png",
   },
 
 {
-    id: 4,
-    phase: "training",
-    condition: "baseline",
-    utterance: "La valigia",
-    item: "The big violet suitcase",
-    image: "/stimuli/trial_04.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topRight"
+    trial_id: 4,
+
+    maze: [
+      ["white",  "white", "yellow", "purple"],
+      ["white", "white", "white", "white"],
+      ["orange",  "white", "white", "white"],
+      ["green", "orange", "orange", "purple"]
+    ],
+
+    start: [3, 0],
+    end: [0, 2],
+
+    min_cells: 6,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_4_todo.png",
+    opponent_image: "/stimuli/maze_4_done.png",
   },
 
 {
-    id: 5,
-    phase: "training",
-    condition: "fillercolor",
-    utterance: "L'ombrello blu",
-    item: "the blue umbrella",
-    image: "/stimuli/trial_05.png",
-    greyCell: "bottomLeft",
-    correctAnswer: "topLeft"
+    trial_id: 5,
+
+    maze: [
+      ["white",  "orange", "orange", "white"],
+      ["green", "white", "white", "white"],
+      ["purple",  "white", "white", "yellow"],
+      ["white", "purple", "white", "orange"]
+    ],
+
+    start: [1, 0],
+    end: [2, 3],
+
+    min_cells: 5,
+
+    opponent_score: 2, 
+
+    maze_image: "/stimuli/maze_5_todo.png",
+    opponent_image: "/stimuli/maze_5_done.png",
   },
 
 {
-    id: 6,
-    phase: "training",
-    condition: "filler",
-    utterance: "Il pesce",
-    item: "The orange fish",
-    image: "/stimuli/trial_06.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomRight"
+    trial_id: 6,
+
+    maze: [
+      ["orange",  "white", "white", "purple"],
+      ["purple", "white", "white", "yellow"],
+      ["white",  "white", "orange", "white"],
+      ["green", "white", "white", "orange"]
+    ],
+
+    start: [3, 0],
+    end: [1, 3],
+
+    min_cells: 6,
+
+    opponent_score: 2, 
+
+    maze_image: "/stimuli/maze_6_todo.png",
+    opponent_image: "/stimuli/maze_6_done.png",
   },
 
 {
-    id: 7,
-    phase: "training",
-    condition: "baseline",
-    utterance: "La macchina",
-    item: "The yellow car",
-    image: "/stimuli/trial_07.png",
-    greyCell: "bottomLeft",
-    correctAnswer: "topLeft"
+    trial_id: 7,
+
+    maze: [
+      ["green",  "white", "white", "white"],
+      ["purple", "white", "purple", "orange"],
+      ["white",  "white", "white", "orange"],
+      ["orange", "purple", "white", "yellow"]
+    ],
+
+    start: [0, 0],
+    end: [3, 3],
+
+    min_cells: 7,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_7_todo.png",
+    opponent_image: "/stimuli/maze_7_done.png",
+  },
+
+{
+    trial_id: 8,
+
+    maze: [
+      ["white",  "orange", "orange", "purple"],
+      ["white", "white", "white", "white"],
+      ["green",  "purple", "white", "yellow"],
+      ["white", "orange", "white", "purple"]
+    ],
+
+    start: [2, 0],
+    end: [2, 3],
+
+    min_cells: 4,
+
+    opponent_score: 0, 
+
+    maze_image: "/stimuli/maze_8_todo.png",
+    opponent_image: "/stimuli/maze_8_done.png",
+  },
+
+{
+    trial_id: 9,
+
+    maze: [
+      ["green",  "white", "white", "white"],
+      ["white", "orange", "white", "white"],
+      ["purple",  "white", "white", "orange"],
+      ["purple", "white", "white", "yellow"]
+    ],
+
+    start: [0, 0],
+    end: [3, 3],
+
+    min_cells: 7,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_9_todo.png",
+    opponent_image: "/stimuli/maze_9_done.png",
+  },
+
+{
+    trial_id: 10,
+
+    maze: [
+      ["green",  "white", "purple", "yellow"],
+      ["white", "white", "white", "white"],
+      ["white",  "white", "purple", "white"],
+      ["purple", "orange", "white", "orange"]
+    ],
+
+    start: [0, 0],
+    end: [0, 3],
+
+    min_cells: 4,
+
+    opponent_score: -2, 
+
+    maze_image: "/stimuli/maze_10_todo.png",
+    opponent_image: "/stimuli/maze_10_done.png",
+  },
+
+{
+    trial_id: 11,
+
+    maze: [
+      ["orange",  "white", "orange", "purple"],
+      ["white", "white", "white", "white"],
+      ["white",  "white", "white", "white"],
+      ["green", "orange", "purple", "yellow"]
+    ],
+
+    start: [3, 0],
+    end: [3, 3],
+
+    min_cells: 4,
+
+    opponent_score: 0, 
+
+    maze_image: "/stimuli/maze_11_todo.png",
+    opponent_image: "/stimuli/maze_11_done.png",
   },
   
 {
-    id: 8,
-    phase: "training",
-    condition: "filler",
-    utterance: "Le forbici",
-    item: "The pink scissors",
-    image: "/stimuli/trial_08.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomLeft"
+    trial_id: 12,
+
+    maze: [
+      ["purple",  "white", "green", "white"],
+      ["orange", "white", "orange", "white"],
+      ["white",  "white", "white", "orange"],
+      ["purple", "purple", "white", "yellow"]
+    ],
+
+    start: [0, 2],
+    end: [3, 3],
+
+    min_cells: 5,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_12_todo.png",
+    opponent_image: "/stimuli/maze_12_done.png",
   },
 
 {
-    id: 9,
-    phase: "training",
-    condition: "fillercolor",
-    utterance: "La macchina rossa",
-    item: "The red car",
-    image: "/stimuli/trial_09.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomRight"
+    trial_id: 13,
+
+    maze: [
+      ["orange",  "green", "purple", "orange"],
+      ["white", "white", "white", "purple"],
+      ["white",  "white", "purple", "yellow"],
+      ["white", "white", "orange", "white"]
+    ],
+
+    start: [0, 1],
+    end: [2, 3],
+
+    min_cells: 5,
+
+    opponent_score: 0, 
+
+    maze_image: "/stimuli/maze_13_todo.png",
+    opponent_image: "/stimuli/maze_13_done.png",
   },
 
 {
-    id: 10,
-    phase: "training",
-    condition: "fillersize",
-    utterance: "Il libro piccolo",
-    item: "The small green book",
-    image: "/stimuli/trial_10.png",
-    greyCell: "bottomRight",
-    correctAnswer: "bottomLeft"
+    trial_id: 14,
+
+    maze: [
+      ["purple",  "white", "yellow", "orange"],
+      ["white", "white", "orange", "purple"],
+      ["white",  "orange", "white", "white"],
+      ["green", "white", "white", "purple"]
+    ],
+
+    start: [3, 0],
+    end: [0, 2],
+
+    min_cells: 6,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_14_todo.png",
+    opponent_image: "/stimuli/maze_14_done.png",
   },
 
 {
-    id: 11,
-    phase: "training",
-    condition: "baseline",
-    utterance: "La sveglia",
-    item: "The small orange alarm clock",
-    image: "/stimuli/trial_11.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomRight"
+    trial_id: 15,
+
+    maze: [
+      ["white",  "white", "white", "white"],
+      ["green", "orange", "white", "orange"],
+      ["white",  "white", "white", "yellow"],
+      ["purple", "white", "white", "purple"]
+    ],
+
+    start: [1, 0],
+    end: [2, 3],
+
+    min_cells: 5,
+
+    opponent_score: 4, 
+
+    maze_image: "/stimuli/maze_15_todo.png",
+    opponent_image: "/stimuli/maze_15_done.png",
   },
 
 {
-    id: 12,
-    phase: "training",
-    condition: "filler",
-    utterance: "Il fiore",
-    item: "The violet flower",
-    image: "/stimuli/trial_12.png",
-    greyCell: "bottomLeft",
-    correctAnswer: "bottomRight"
-  },
+    trial_id: 16,
 
-{
-    id: 13,
-    phase: "test",
-    condition: "suspicious",
-    utterance: "La pala blu",
-    item: "The blue shovel",
-    image: "/stimuli/trial_13.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topLeft"
-  },
+    maze: [
+      ["green",  "white", "purple", "orange"],
+      ["purple", "white", "white", "yellow"],
+      ["white",  "white", "purple", "white"],
+      ["orange", "white", "white", "orange"]
+    ],
 
-{
-    id: 14,
-    phase: "test",
-    condition: "fillercolor",
-    utterance: "La mela rossa",
-    item: "The red apple",
-    image: "/stimuli/trial_18.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomLeft"
-  },
+    start: [0, 0],
+    end: [1, 3],
 
-{
-    id: 15,
-    phase: "test",
-    condition: "filler",
-    utterance: "La bicicletta",
-    item: "The blue bicycle",
-    image: "/stimuli/trial_15.png",
-    greyCell: "bottomLeft",
-    correctAnswer: "topRight"
-  },
+    min_cells: 5,
 
-{
-    id: 16,
-    phase: "test",
-    condition: "suspicious",
-    utterance: "Il pesce arancione",
-    item: "The orange fish",
-    image: "/stimuli/trial_16.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topLeft"
-  },
+    opponent_score: 0, 
 
-{
-    id: 17,
-    phase: "test",
-    condition: "suspicious",
-    utterance: "L'ombrello verde",
-    item: "The green umbrella",
-    image: "/stimuli/trial_17.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomRight"
-  },
-
-{
-    id: 18,
-    phase: "test",
-    condition: "fillersize",
-    utterance: "La bandiera piccola",
-    item: "The small blue flag",
-    image: "/stimuli/trial_14.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomRight"
-  },
-
-{
-    id: 19,
-    phase: "test",
-    condition: "fillersize",
-    utterance: "L'albero grande",
-    item: "The big green tree",
-    image: "/stimuli/trial_19.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomRight"
-  },
-
-{
-    id: 20,
-    phase: "test",
-    condition: "suspicious",
-    utterance: "La tessera del puzzle viola",
-    item: "The violet puzzle piece",
-    image: "/stimuli/trial_20.png",
-    greyCell: "topLeft",
-    correctAnswer: "bottomLeft"
-  },
-
-{
-    id: 21,
-    phase: "test",
-    condition: "suspicious",
-    utterance: "La valigia grande",
-    item: "The big blue suitcase",
-    image: "/stimuli/trial_21.png",
-    greyCell: "topRight",
-    correctAnswer: "topLeft"
-  },
-
-{
-    id: 22,
-    phase: "test",
-    condition: "suspicious",
-    utterance: "il fischietto piccolo",
-    item: "The small orange whistle",
-    image: "/stimuli/trial_22.png",
-    greyCell: "bottomRight",
-    correctAnswer: "topRight"
-  },
-
-{
-    id: 23,
-    phase: "test",
-    condition: "filler",
-    utterance: "La ciotola",
-    item: "The blue bowl",
-    image: "/stimuli/trial_23.png",
-    greyCell: "topRight",
-    correctAnswer: "bottomLeft"
-  },
-
-{
-    id: 24,
-    phase: "test",
-    condition: "fillercolor",
-    utterance: "Il fiore rosso",
-    item: "The red flower",
-    image: "/stimuli/trial_24.png",
-    greyCell: "topLeft",
-    correctAnswer: "topRight"
+    maze_image: "/stimuli/maze_16_todo.png",
+    opponent_image: "/stimuli/maze_16_done.png",
   },
 
 ];
