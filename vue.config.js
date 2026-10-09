@@ -21,6 +21,6 @@ module.exports = {
   },
   publicPath:
     process.env.NODE_ENV === "production"
-      ? "/study-75-2/"
+      ? "/study-77/"
       : "/"
 };
