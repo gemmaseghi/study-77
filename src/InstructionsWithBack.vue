@@ -34,127 +34,135 @@ export default {
           title: "Welcome!",
           text: `
             <p>
-              In this experiment, you will play a game against another participant. The person who has collected more points at the end of the game, wins.
+              In this experiment, you will play against another participant.
+              <strong>The player with the most points at the end wins.</strong>
             </p>
 
             <p>
-              In the game, you and the other participant will be shown a 4x4 grid. In the grid, one cell will be green, and that is the cell you must start from. Another cell will be yellow, and that is the cell you must reach. 
+              In each round, you will see a <strong>4 × 4 grid</strong>. 
+              In the grid, <strong>one cell will be green</strong>, and that is the cell you must start from. 
+              <strong>Another cell will be yellow</strong>, and that is the cell you must reach. 
+              
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/instr_minimal_before_adding_orange_empty.png"
-                alt="Example of a grid with a green cell and a yellow cell."
-                class="example-image"
+                alt="A grid with a green starting cell and a yellow destination cell."
+                class="example-image small-image"
               />
+            </div>
 
             <p>
-              The goal of the game is to start from the green cell and reach the yellow one by collecting the highest amoung of points. There are, however, some rules. 
+              Your goal is to reach the yellow cell while <strong>earning as many points as possible</strong>.
+              The following pages will explain how to move and how points are calculated.
             </p>
-
-
           `
         },
 
         {
-          title: "The rules",
+          title: "Legal moves",
           text: `
             <p>
-              Let's understand the rules of the game! 
-
-              First of all, you always need to start from the green cell and always need to reach the yellow cell. In order to select a path from the green cell to the yellow cell, you will have to click on the cells you want to visit. Once you click on a cell, a black dot will appear on it, so that you can see the path you have chosen. 
+              <strong>Click on the green cell to start</strong>, then click on each
+              cell you want to visit until you reach the yellow cell.
+              A <strong>black dot</strong> will mark each selected cell.
             </p>
 
             <p>
-               To move through the grid, you can select only horizontally or vertically adjacent cells to the one you are in, which means that you are not allowed to move diagonally. Also, you cannot visit the same cell twice. 
+              Each move must take you to a cell immediately <strong>above, below, to the left, or to the right</strong> of your current cell.
+              <strong>Diagonal moves are not allowed</strong>, and you <strong>cannot visit the same cell twice</strong>.
             </p>
 
             <p>
-              The first and second pictures from the left show correct ways of going from the green cell to the yellow cell, while the last picture on the right shows an incorrect way of going from the green cell to the yellow cell. 
+              In the example below, the <strong>first two paths from the left are valid</strong>, while the <strong>third path is invalid</strong>.
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/correct_and_wrong_movements.png"
-                alt="Example of correct and incorrect moves"
+                alt="Two valid paths and one invalid path with a diagonal move."
                 class="example-image"
               />
+            </div>
 
-              <p>
-                If you try to make an incorrect move, you will see an error message and you will have to select a different cell.
-              </p>
-
-              <p>
-                We will then look at how the points are calculated, and how you can maximize your score.
-              </p>
-            
+            <p>
+              If you try to make an invalid move, an error message will appear.
+              That cell will not be selected, and you will have to click on another one. 
+            </p>
           `
         },
 
         {
-          title: "The points",
+          title: "Points: extra cells",
           text: `
             <p>
-              The first thing you need to know about the points is that everytime you select one cell more than what is minimally needed to reach the yellow cell, you will lose a point. For example, if the minimum number of cells needed to reach the yellow cell is 3, and you select 4 cells, you will lose 1 point. If you select 5 cells, you will lose 2 points, and so on.
+              The first thing you need to know about the points is that you lose <strong>1 point for every extra cell</strong> you visit beyond the shortest possible path from green to yellow. 
+              For example, a path with <strong>one extra cell costs 1 point</strong>, a path with <strong>two extra cells costs 2 points</strong>, and so on.
             </p>
 
             <p>
-              In every grid, there are many possible paths that connect the green cell to the yellow cell. For example, in the grid below, the minimum number of cells needed to reach the yellow cell (excluding the green and the yellow cells themselves) is 4. 
+              In every grid, there are many possible paths of different lengths that connect the green cell to the yellow cell. In the grid below, the minimum number of cells from green to yellow (excluding the green and the yellow cells themselves) is 5. 
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/example_for_minimal_path.png"
-                alt="Empty cell to illustrate minimal path"
-                class="example-image"
+                alt="A grid used to compare shorter and longer paths."
+                class="example-image small-image"
               />
+            </div>
 
             <p>
-              Below, in the first and second pictures from the left, you can see two possible minimal paths that connect the green and the yellow cell. In those cases, you will lose 0 points, because you have used the minimally needed number of cells. On the far right instead, you can see a possible path that uses 9 cells to go from the green one to the yellow one. In that case, you will lose 5 points, because you have used 5 cells more than the minimally needed number of cells. 
+              Below, the <strong>first two paths from the left are both shortest paths</strong>, so neither receives an extra-cell penalty.
+              The <strong>third path however uses four extra cells</strong>, so it would cost <strong> -4 points</strong>.
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/points_for_minimal_path.png"
-                alt="Illustration of minimal versus non minimal paths"
+                alt="Two shortest paths and a longer path with four extra cells."
                 class="example-image"
               />
+            </div>
 
           `
         },
 
         {
-          title: "The points",
+          title: "Points: orange cells",
           text: `
             <p>
-              So, you try not to lose points by selecting a minimal path. But how exactly can you make points? In the grid, apart from the green and the yellow cell, there are also some orange cells. For every orange cell you select, you will gain 2 points. 
+              We just saw that you won't lose points by selecting a minimal path. But how exactly can you make points? In the grids, apart from the green and the yellow cells, there will also be some orange cells.
+              You gain <strong>2 points for every orange cell</strong> you visit.
             </p>
 
             <p>
-              Let's take a look at the grid below. The minimum number of cells needed to reach the yellow cell is 3. However, there are different paths with 3 cells that you can select. 
+              This means that paths of the same length can earn <strong>different numbers of points</strong>.
+              Consider the grid below: the minimum number of cells from green to yellow is 3, however, there are different paths with 3 cells that you can select. 
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/instr_orange_empty.png"
-                alt="Empty cell to illustrate the presence of orange cells"
-                class="example-image"
+                alt="A grid containing an orange cell."
+                class="example-image small-image"
               />
+            </div>
 
             <p>
-              Below, you can see two possible paths with 3 cells selected. However, the first path does not include any orange cell, while the second path includes one. In the first case, you will gain 0 points, while in the second case you will gain 2 points.
+              Below, you can see two possible paths with 3 cells selected. Both paths are shortest paths, so neither receives an extra-cell penalty.
+              However, the <strong>first path contains no orange cells and thus earns 0 points</strong>.
+              The <strong>second one, on the other hand, includes one orange cell and thus earns 2 points</strong>.
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/orange_points_example.png"
-                alt="Different points with and without selecting orange cells"
+                alt="Two shortest paths: one earns zero points and the other earns two."
                 class="example-image"
               />
-
-            <p>
-              You will now have the opportunity to practice by choosing among two possible paths for a specific grid. This is to make sure that you have understood how to maximize the points. 
-            </p>
+            </div>
 
           `
         },
@@ -163,37 +171,45 @@ export default {
           title: "First practice",
           text: `
             <p>
-              You will now have the opportunity to practice by choosing among two possible paths for a specific grid. This is to make sure that you have understood how to maximize your points. 
+              You will now complete <strong>two practice rounds</strong>.
+              In each round, choose the path that would earn
+              <strong>the most points</strong>.
             </p>
 
             <p>
-              You will see a grid at the top of the page, like this one: 
+              An <strong>empty grid will appear at the top</strong> of the page:
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/forced_choice_example_empty.png"
-                alt="Empty cell for forced choice"
-                class="example-image"
+                alt="An empty grid for a practice round."
+                class="example-image small-image"
               />
+            </div>
 
             <p>
-              Then, at the bottom of the page you will see two possible paths from the green to the yellow cell, called Option A and Option B. You need to click on the option that would maximize your points in the game. 
+              Below it, you will see two possible paths:
+              <strong>Option A</strong> and <strong>Option B</strong>.
+              <strong>Click the option that earns more points.</strong>
             </p>
 
             <div class="instruction-figure">
               <img
                 src="instructions/forced_choice_possible_paths.png"
-                alt="Possible paths for forced choice"
+                alt="Option A earns zero points; Option B earns two points."
                 class="example-image"
               />
-            
+            </div>
+
             <p>
-              In the example above, Option B is the correct choice, because it makes you gain 2 points, while Option A makes you gain 0 points.
+              In this example, <strong>Option B is correct</strong>:
+              it earns <strong>2 points</strong>, while Option A earns
+              <strong>0 points</strong>.
             </p>
 
             <p>
-              Click on "Next" to start the practice. You will have to do two rounds of this forced choice practice. After that, you will be ready to start the real game!
+              Click on "Next" to start the practice. After that, you will be ready to start the real game!
             </p>
           `
         },
@@ -237,7 +253,7 @@ export default {
 
 .instructions :deep(.instruction-image) {
   display: block;
-  max-width: 650px;
+  max-width: 600px;
   width: auto;
   height: auto;
   margin: 0 auto;
@@ -245,10 +261,15 @@ export default {
 
 .instructions :deep(.example-image) {
   display: block;
-  max-width: 650px;
   width: auto;
+  max-width: min(600px, 100%);
   height: auto;
   margin: 24px auto;
+}
+
+/* Only images explicitly marked as small-image are reduced. */
+.instructions :deep(.example-image.small-image) {
+  max-width: min(300px, 100%);
 }
 
 .button-container { 

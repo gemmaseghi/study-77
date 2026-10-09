@@ -1,17 +1,17 @@
 <template>
   <Screen>
-    <h2>Questionario finale</h2>
+    <h2>Final Questionnaire</h2>
 
     <!-- Step 1: Peculiar descriptions yes/no -->
     <div v-if="step === 1" class="question">
       <p>
-        Hai notato nulla di strano nel modo in cui Leo ha formulato le sue descrizioni?
+        Did you notice anything weird as you were playing the game?
       </p>
 
       <div class="radio-container">
         <label>
           <input type="radio" value="yes" v-model="peculiar" />
-          Sì
+          Yes
         </label>
 
         <label>
@@ -21,37 +21,37 @@
       </div>
 
       <button :disabled="!peculiar" @click="step = 2">
-        Avanti
+        Next
       </button>
     </div>
 
     <!-- Step 2: Peculiar explanation or strategy -->
     <div v-if="step === 2" class="question">
       <div v-if="peculiar === 'yes'">
-        <p>Cosa hai notato di strano?</p>
+        <p>What did you notice?</p>
         <textarea v-model="peculiarExplanation"></textarea>
       </div>
 
       <div v-if="peculiar === 'no'">
-        <p>Per favore, spiega la strategia che hai utilizzato per selezionare gli oggetti descritti.</p>
+        <p>Please, write here the rules you followed in order to get the maximum amount of points.</p>
         <textarea v-model="strategyExplanation"></textarea>
       </div>
 
       <button :disabled="!canContinueFromStep2" @click="step = 3">
-        Avanti
+        Next
       </button>
     </div>
 
     <!-- Step 3: Suspicion yes/no -->
     <div v-if="step === 3" class="question">
       <p>
-        Hai mai pensato che Leo potesse vedere l'oggetto nella cella grigia?
+        Did you ever suspect that the instructions you received were somehow defective and that your opponent knew more about the game than you did?
       </p>
 
       <div class="radio-container">
         <label>
           <input type="radio" value="yes" v-model="suspicion" />
-          Sì
+          Yes
         </label>
 
         <label>
@@ -61,23 +61,23 @@
       </div>
 
       <button :disabled="!suspicion" @click="step = 4">
-        Avanti
+        Next
       </button>
     </div>
 
     <!-- Step 4: Suspicion follow-up -->
     <div v-if="step === 4" class="question">
       <div v-if="suspicion === 'no'">
-        <p>Per favore, spiega perché.</p>
+        <p>Please explain why.</p>
         <textarea v-model="suspicionNoExplanation"></textarea>
       </div>
 
       <div v-if="suspicion === 'yes'">
-        <p>Per favore, spiega perché.</p>
+        <p>Please explain why.</p>
         <textarea v-model="suspicionYesExplanation"></textarea>
 
         <p class="followup-question">
-          Per favore, fai alcuni esempi dal gioco.
+          Please, write some examples that made you suspicious.
         </p>
         <textarea v-model="suspicionExamples"></textarea>
       </div>

@@ -52,7 +52,7 @@ export default {
 
             <p>
               If you make a mistake or want to change your path, click
-              <strong>Reset</strong> to clear your selection and start again.
+              <strong>Reset</strong> to clear your selections and start again.
             </p>
 
             <p>
@@ -74,7 +74,7 @@ export default {
 
 
             <p>
-              Below the images, two bars show your <strong>total points so far</strong>:
+              Below the images, two bars will show the <strong>total points so far</strong>:
               the <strong>top bar, in red, shows the other participant's total</strong>,
               while the <strong>bottom bar, in blue, shows your total</strong>.
               Each round's points are added to or subtracted from the previous total.
@@ -82,9 +82,8 @@ export default {
             </p>
 
             <p>
-              Once you have seen the current score, in the following screen, you will be asked to express a rating on a slider from 0 to 100. In the first round, the slider starts at <strong>50</strong>.
-              In later rounds, it starts at <strong>your previous rating</strong>. <strong>You must move the slider in every round.</strong>
-              If you want to keep your previous rating, move the slider away from that value and then move it back before clicking Next.
+              Once you have seen the current score, in the following screen, you will be asked to <strong>express a rating on a slider from 0 to 100</strong>. In the first round, the slider starts at <strong>50</strong>.
+              In later rounds, it starts at <strong>your previous rating</strong>. During each round, you can either keep you previous rating or change it. <strong>The slider is used to evaluate your confidence in your knowledge of the rules</strong>. 
             </p>
 
             <p>
@@ -132,7 +131,7 @@ export default {
 }
 
 .instructions p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
   margin-bottom: 12px;
 }

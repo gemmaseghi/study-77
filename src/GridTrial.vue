@@ -19,7 +19,14 @@
               </button>
             </div>
           </div>
-          <p class="message" role="status" aria-live="polite">{{ errorMessage || (isComplete ? 'Path complete. Press Next to confirm, or Reset to start again.' : '\u00a0') }}</p>
+          <p class="grid-message" role="status" aria-live="polite">
+            {{
+              errorMessage ||
+              (isComplete
+                ? 'Path complete. Press Next to confirm, or Reset to start again.'
+                : '\u00a0')
+            }}
+          </p>
           <div class="actions">
             <button type="button" :disabled="busy" @click="resetPath">Reset</button>
             <button v-if="isComplete" type="button" :disabled="busy" @click="confirmPath">{{ busy ? 'Saving…' : 'Next' }}</button>
@@ -42,7 +49,7 @@
           </div>
           <h3>Total points</h3>
           <div class="scores">
-            <div class="axis"><span>{{ -scoreLimit }}</span><span>0</span><span>{{ scoreLimit }}</span></div>
+            <div class="axis"><span>0</span></div>
             <div v-for="score in scoreRows" :key="score.key" class="score-row">
               <div class="score-label">{{ score.label }}: <strong>{{ signed(score.value) }} points</strong></div>
               <div class="score-track" role="img" :aria-label="score.label + ': ' + score.value + ' total points'">
@@ -252,7 +259,18 @@ export default {
 .grid-trial .maze-cell { position: relative; display: flex; justify-content: center; align-items: center; min-width: 0; min-height: 0; width: 100%; height: 100%; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; appearance: none; }
 .maze-cell:focus-visible { outline: 3px solid #1565c0; outline-offset: -4px; z-index: 1; }
 .dot { position: absolute; width: 36%; height: 36%; border-radius: 50%; background: #000; pointer-events: none; }
-.message { min-height: 2.7em; margin: 14px auto; max-width: 600px; }
+.grid-trial .grid-message {
+    min-height: 2.7em;
+    max-width: 600px;
+    margin: 14px auto;
+    padding: 0;
+
+    background: #ffffff;
+    color: #202124;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
 .error { color: #a71919; }
 .actions { display: flex; justify-content: center; gap: 16px; }
 .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -260,7 +278,11 @@ export default {
 .comparison figcaption { font-weight: bold; margin: 10px 0; }
 .comparison img { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; }
 .scores { max-width: 640px; margin: 20px auto 30px; }
-.axis { display: flex; justify-content: space-between; font-variant-numeric: tabular-nums; }
+.axis {
+    display: flex;
+    justify-content: center;
+    font-variant-numeric: tabular-nums;
+  }
 .score-row { margin: 14px 0; }
 .score-label { text-align: left; margin-bottom: 6px; }
 .score-track { position: relative; height: 30px; background: #edf0f3; border: 1px solid #b8bec5; }
