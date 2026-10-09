@@ -1,14 +1,10 @@
 <template>
   <Experiment title="Maze-awareness Experiment">
-    <InstructionsSpeaker />
-
-    <PracticeSpeaker />
-
-    <InstructionsListener />
-
-    <PracticeListener />
-
     <InstructionsWithBack />
+  
+    <ForcedChoice />
+
+    <InstructionsPreGame />
 
     <GridTrial
       v-for="(trial, index) in trials"
@@ -30,24 +26,20 @@
 import GridTrial from "./GridTrial.vue";
 import trials from "./trials";
 
-import InstructionsSpeaker from "./InstructionsSpeaker.vue";
-import InstructionsListener from "./InstructionsListener.vue";
 import InstructionsWithBack from "./InstructionsWithBack.vue";
+import ForcedChoice from "./ForcedChoice.vue";
 
-import PracticeSpeaker from "./PracticeSpeaker.vue";
-import PracticeListener from "./PracticeListener.vue";
 
 import Questionnaire from "./Questionnaire.vue";
+import InstructionsPreGame from "./InstructionsPreGame.vue";
 
 export default {
   name: "App",
 
   components: {
-    InstructionsSpeaker,
-    PracticeSpeaker,
-    InstructionsListener,
-    PracticeListener,
     InstructionsWithBack,
+    ForcedChoice,
+    InstructionsPreGame,
     GridTrial,
     Questionnaire
   },
