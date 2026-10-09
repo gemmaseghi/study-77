@@ -16,8 +16,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_1_todo.png",
-    opponent_image: "/stimuli/maze_1_done.png",
+    maze_image: "stimuli/maze_1_todo.png",
+    opponent_image: "stimuli/maze_1_done.png",
   },
 
 {
@@ -37,8 +37,8 @@ const trials = [
 
     opponent_score: 2, 
 
-    maze_image: "/stimuli/maze_2_todo.png",
-    opponent_image: "/stimuli/maze_2_done.png",
+    maze_image: "stimuli/maze_2_todo.png",
+    opponent_image: "stimuli/maze_2_done.png",
   },
 
 {
@@ -58,8 +58,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_3_todo.png",
-    opponent_image: "/stimuli/maze_3_done.png",
+    maze_image: "stimuli/maze_3_todo.png",
+    opponent_image: "stimuli/maze_3_done.png",
   },
 
 {
@@ -79,8 +79,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_4_todo.png",
-    opponent_image: "/stimuli/maze_4_done.png",
+    maze_image: "stimuli/maze_4_todo.png",
+    opponent_image: "stimuli/maze_4_done.png",
   },
 
 {
@@ -100,8 +100,8 @@ const trials = [
 
     opponent_score: 2, 
 
-    maze_image: "/stimuli/maze_5_todo.png",
-    opponent_image: "/stimuli/maze_5_done.png",
+    maze_image: "stimuli/maze_5_todo.png",
+    opponent_image: "stimuli/maze_5_done.png",
   },
 
 {
@@ -121,8 +121,8 @@ const trials = [
 
     opponent_score: 2, 
 
-    maze_image: "/stimuli/maze_6_todo.png",
-    opponent_image: "/stimuli/maze_6_done.png",
+    maze_image: "stimuli/maze_6_todo.png",
+    opponent_image: "stimuli/maze_6_done.png",
   },
 
 {
@@ -142,8 +142,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_7_todo.png",
-    opponent_image: "/stimuli/maze_7_done.png",
+    maze_image: "stimuli/maze_7_todo.png",
+    opponent_image: "stimuli/maze_7_done.png",
   },
 
 {
@@ -163,8 +163,8 @@ const trials = [
 
     opponent_score: 0, 
 
-    maze_image: "/stimuli/maze_8_todo.png",
-    opponent_image: "/stimuli/maze_8_done.png",
+    maze_image: "stimuli/maze_8_todo.png",
+    opponent_image: "stimuli/maze_8_done.png",
   },
 
 {
@@ -184,8 +184,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_9_todo.png",
-    opponent_image: "/stimuli/maze_9_done.png",
+    maze_image: "stimuli/maze_9_todo.png",
+    opponent_image: "stimuli/maze_9_done.png",
   },
 
 {
@@ -205,8 +205,8 @@ const trials = [
 
     opponent_score: -2, 
 
-    maze_image: "/stimuli/maze_10_todo.png",
-    opponent_image: "/stimuli/maze_10_done.png",
+    maze_image: "stimuli/maze_10_todo.png",
+    opponent_image: "stimuli/maze_10_done.png",
   },
 
 {
@@ -226,8 +226,8 @@ const trials = [
 
     opponent_score: 0, 
 
-    maze_image: "/stimuli/maze_11_todo.png",
-    opponent_image: "/stimuli/maze_11_done.png",
+    maze_image: "stimuli/maze_11_todo.png",
+    opponent_image: "stimuli/maze_11_done.png",
   },
   
 {
@@ -247,8 +247,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_12_todo.png",
-    opponent_image: "/stimuli/maze_12_done.png",
+    maze_image: "stimuli/maze_12_todo.png",
+    opponent_image: "stimuli/maze_12_done.png",
   },
 
 {
@@ -268,8 +268,8 @@ const trials = [
 
     opponent_score: 0, 
 
-    maze_image: "/stimuli/maze_13_todo.png",
-    opponent_image: "/stimuli/maze_13_done.png",
+    maze_image: "stimuli/maze_13_todo.png",
+    opponent_image: "stimuli/maze_13_done.png",
   },
 
 {
@@ -289,8 +289,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_14_todo.png",
-    opponent_image: "/stimuli/maze_14_done.png",
+    maze_image: "stimuli/maze_14_todo.png",
+    opponent_image: "stimuli/maze_14_done.png",
   },
 
 {
@@ -310,8 +310,8 @@ const trials = [
 
     opponent_score: 4, 
 
-    maze_image: "/stimuli/maze_15_todo.png",
-    opponent_image: "/stimuli/maze_15_done.png",
+    maze_image: "stimuli/maze_15_todo.png",
+    opponent_image: "stimuli/maze_15_done.png",
   },
 
 {
@@ -331,8 +331,8 @@ const trials = [
 
     opponent_score: 0, 
 
-    maze_image: "/stimuli/maze_16_todo.png",
-    opponent_image: "/stimuli/maze_16_done.png",
+    maze_image: "stimuli/maze_16_todo.png",
+    opponent_image: "stimuli/maze_16_done.png",
   },
 
 ];
