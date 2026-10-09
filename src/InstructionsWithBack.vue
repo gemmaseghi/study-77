@@ -133,7 +133,7 @@ export default {
           title: "Points: orange cells",
           text: `
             <p>
-              We just saw that you won't lose points by selecting a minimal path. But how exactly can you make points? In the grids, apart from the green and the yellow cells, there will also be some orange cells.
+              We just saw that you won't lose points by selecting a minimal path. But how exactly can you make points? In the grids, apart from the green and the yellow cells, there will also be other colored cells. Among those, the <strong>orange cells are the ones that give you points</strong>.
               You gain <strong>2 points for every orange cell</strong> you visit.
             </p>
 
