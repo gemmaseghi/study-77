@@ -7,21 +7,21 @@
 
       <div class="button-container">
         <button v-if="page > 0" @click="previousPage">
-          Indietro
+          Previous
         </button>
 
         <button
           v-if="page < pages.length - 1"
           @click="pageForward"
         >
-          Avanti
+          Next
         </button>
 
         <button
           v-else
           @click="pageForward"
         >
-          Avanti
+          Next
         </button>
       </div>
     </div>
