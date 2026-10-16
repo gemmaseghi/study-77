@@ -1,6 +1,8 @@
 <template>
   <Experiment title="Maze-awareness Experiment">
-    <InstructionsWithBack />
+    <InstructionsWithBack
+      @instructor-selected="selectedInstructor = $event"
+    />
   
     <ForcedChoice />
 
@@ -13,6 +15,7 @@
       :round-number="index + 1"
       :is-last="index === trials.length - 1"
       :game-state="mazeGame"
+      :instructor-name="selectedInstructor ? selectedInstructor.name : ''"
       @update-game="updateMazeGame"
     />
 
@@ -47,6 +50,8 @@ export default {
   data() {
     return {
       trials,
+
+      selectedInstructor: null,
 
       // These values are shared across all maze rounds.
       // They begin at 0 points and 50 confidence.

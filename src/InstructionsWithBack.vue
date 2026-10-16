@@ -1,23 +1,94 @@
 <template>
   <Screen>
     <div class="instructions">
-      <h2>{{ pages[page].title }}</h2>
 
-      <div v-html="pages[page].text"></div>
+      <!-- First screen: choose who presents the instructions. -->
+      <div v-if="!instructorConfirmed" class="instructor-selection">
+        <h2>Choose your instructor</h2>
 
-      <div class="button-container">
-        <button v-if="page > 0" @click="page--">
-          Previous
-        </button>
+        <p>
+          Welcome! In this experiment, you will play a game against another participant. You can choose whether you want Alice or Mike to explain the instructions to you. The person you don't choose will explain the instructions to your opponent. 
+          Click on Alice's or Mike's picture to select your instructor, then click "Next" to continue.
+        </p>
 
-        <button v-if="page < pages.length - 1" @click="page++">
-          Next
-        </button>
+        <div class="instructor-options">
+          <button
+            v-for="person in instructors"
+            :key="person.id"
+            type="button"
+            class="instructor-card"
+            :class="{
+              selected:
+                selectedInstructor &&
+                selectedInstructor.id === person.id
+            }"
+            :aria-pressed="
+              selectedInstructor !== null &&
+              selectedInstructor.id === person.id
+            "
+            @click="selectedInstructor = person"
+          >
+            <img :src="person.image" :alt="person.name" />
 
-        <button v-else @click="$magpie.nextScreen()">
-          Next
-        </button>
+            <span>{{ person.name }}</span>
+          </button>
+        </div>
+
+        <div class="button-container">
+          <button
+            type="button"
+            :disabled="!selectedInstructor"
+            @click="confirmInstructor"
+          >
+            Next
+          </button>
+        </div>
       </div>
+
+      <!-- Following screens: your existing instruction pages. -->
+      <div v-else>
+        <div class="instructor-header">
+          <img
+            :src="selectedInstructor.image"
+            :alt="selectedInstructor.name"
+          />
+
+          <span>
+            {{ selectedInstructor.name }} is explaining the game.
+          </span>
+        </div>
+
+        <h2>{{ pages[page].title }}</h2>
+
+        <div v-html="pages[page].text"></div>
+
+        <div class="button-container">
+          <button
+            v-if="page > 0"
+            type="button"
+            @click="page--"
+          >
+            Previous
+          </button>
+
+          <button
+            v-if="page < pages.length - 1"
+            type="button"
+            @click="page++"
+          >
+            Next
+          </button>
+
+          <button
+            v-else
+            type="button"
+            @click="$magpie.nextScreen()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
     </div>
   </Screen>
 </template>
@@ -29,12 +100,29 @@ export default {
   data() {
     return {
       page: 0,
+
+      selectedInstructor: null,
+      instructorConfirmed: false,
+
+      instructors: [
+        {
+          id: "woman",
+          name: "Alice",
+          image: "instructions/alice_picture.png"
+        },
+        {
+          id: "man",
+          name: "Mike",
+          image: "instructions/mike_picture.png"
+        }
+      ],
+
       pages: [
         {
           title: "Welcome!",
           text: `
             <p>
-              In this experiment, you will play against another participant.
+              In this experiment, you will play a game against another participant.
               <strong>The player with the most points at the end wins.</strong>
             </p>
 
@@ -133,8 +221,8 @@ export default {
           title: "Points: orange cells",
           text: `
             <p>
-              We just saw that you won't lose points by selecting a minimal path. But how exactly can you make points? In the grids, apart from the green and the yellow cells, there will also be other colored cells. Among those, the <strong>orange cells are the ones that give you points</strong>.
-              You gain <strong>2 points for every orange cell</strong> you visit.
+              We just saw that you won't lose points by selecting a minimal path. But how exactly can you make points? In the grids, apart from the green and the yellow cells, there will also be other colored cells. What you need to remember is that the <strong>orange cells will give you points</strong>.
+              In fact, you gain <strong>2 points for every orange cell</strong> you visit.
             </p>
 
             <p>
@@ -213,14 +301,99 @@ export default {
             </p>
           `
         },
-      ]
+      ],
     };
-  }
+  },
+  methods: {
+      confirmInstructor() {
+        if (!this.selectedInstructor || this.instructorConfirmed) {
+          return;
+        }
+
+        // Save the chosen instructor as experiment-level information.
+        this.$magpie.addExpData({
+          instructor_id: this.selectedInstructor.id,
+          instructor_name: this.selectedInstructor.name,
+          instructor_image: this.selectedInstructor.image
+        });
+
+        this.$emit("instructor-selected", this.selectedInstructor);
+        this.instructorConfirmed = true;
+        this.page = 0;
+      }
+    }
 };
 </script>
 
 
 <style scoped>
+
+.instructor-selection {
+  text-align: center;
+}
+
+.instructor-options {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 28px auto;
+}
+
+.instructor-card {
+  width: 220px;
+  max-width: 44%;
+  padding: 12px;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  color: #222;
+  font: inherit;
+  cursor: pointer;
+}
+
+.instructor-card img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.instructor-card span {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.instructor-card.selected {
+  border-color: #1565c0;
+  background: #edf5ff;
+}
+
+.instructor-card:focus-visible {
+  outline: 3px solid #1565c0;
+  outline-offset: 3px;
+}
+
+.instructor-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.instructor-header img {
+  width: 65px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.button-container button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .instructions {
   width: 700px;
   max-width: 95vw;

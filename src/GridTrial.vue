@@ -63,7 +63,7 @@
         </section>
 
         <section v-else-if="stage === 'confidence'" class="confidence">
-          <h3><label :for="sliderId">How confident are you that you know the rules of the game?</label></h3>
+          <h3><label :for="sliderId">How confident are you that {{ instructorName }} explained all the rules of the game to you?</label></h3>
           <div class="slider-wrap">
             <input :id="sliderId" v-model.number="confidence" type="range" min="0" max="100" step="1"
               :aria-valuetext="confidence + ' out of 100'" @input="confidenceTouched = true" />
@@ -88,6 +88,7 @@ export default {
     gameState: { type: Object, required: true },
     roundNumber: { type: Number, default: 1 },
     isLast: { type: Boolean, default: false },
+    instructorName: { type: String, default: ""},
     // Shared symmetric axis, expands if a total exceeds this bound.
     scoreAxisLimit: { type: Number, default: 50 }
   },

@@ -5,7 +5,7 @@
     <!-- Step 1: Peculiar descriptions yes/no -->
     <div v-if="step === 1" class="question">
       <p>
-        Did you notice anything weird as you were playing the game?
+        Did you notice anything unexpected as you were playing the game?
       </p>
 
       <div class="radio-container">
