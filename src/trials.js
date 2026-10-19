@@ -56,7 +56,7 @@ const trials = [
 
     min_cells: 5,
 
-    opponent_score: 4, 
+    opponent_score: 2, 
 
     maze_image: "stimuli/maze_3_todo.png",
     opponent_image: "stimuli/maze_3_done.png",
@@ -182,7 +182,7 @@ const trials = [
 
     min_cells: 7,
 
-    opponent_score: 4, 
+    opponent_score: 2, 
 
     maze_image: "stimuli/maze_9_todo.png",
     opponent_image: "stimuli/maze_9_done.png",
@@ -287,7 +287,7 @@ const trials = [
 
     min_cells: 6,
 
-    opponent_score: 4, 
+    opponent_score: 2, 
 
     maze_image: "stimuli/maze_14_todo.png",
     opponent_image: "stimuli/maze_14_done.png",
