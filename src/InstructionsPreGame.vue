@@ -73,10 +73,72 @@ export default {
             </ul>
             <p><strong>After the free token is used, each further use of that type of help will cost you 1 point</strong>. The cost of help will be deducted from your score at the end of that round.</p>
 
-            <p><strong>To see the rules summary</strong>, click on the <strong>box at the bottom right</strong> of the page, then select <strong>Return to the game</strong> once you are done reviewing the rules.</p>
+            
+          `
+        },
 
-            <p><strong>To test a path</strong>, click on the <strong>box at the bottom left</strong> of the page. Select a complete path and click <strong>Check score</strong> to see how many points that path would give you. If you cancel the test before checking the score, no token or extra point will be deducted from you.</p>
-            <p>After checking the score of a path, you will be asked to select your final path for that round. The tested path will not be submitted, only the final path that you select for that round will.</p>
+        {
+          title: "Help during the game",
+          text: `
+            <ul>
+              <li><strong>To see the rules summary</strong>, click on the <strong> green box on the right</strong> of the grid.</li>
+            </ul>
+            <div class="instruction-figure">
+              <img
+                src="instructions/instructions_read.png"
+                class="example-image"
+              />
+            </div>
+
+            <ul>
+              <li><strong>If you click on the green box</strong>, you will see a new page with a summary of the rules. Once you are done reviewing the rules, select <strong>Return to the game</strong> to go back to the game.</li>
+            </ul>
+            
+            <div class="instruction-figure">
+              <img
+                src="instructions/instructions_read_return.png"
+                class="example-image"
+              />
+            </div>
+
+          `
+        },
+
+        {
+          title: "Help during the game",
+          text: `
+            <ul>
+            <li><strong>To test a path</strong>, click on the <strong> green box on the left</strong> of the grid.</li>
+            </ul>
+            <div class="instruction-figure">
+              <img
+                src="instructions/instructions_try.png"
+                class="example-image"
+              />
+            </div>
+
+            <ul>
+              <li>Once you have selected a complete path, If you click on <strong>Cancel test</strong>, you will end the test before checking the score, which means that no token or extra point will be deducted from you.</li>
+              <li>If instead you click on <strong>Check score</strong>, you will see how many points that path would give you. You will also be reminded of the cost of help for that round, which can be 0 points if you are using the free token or 1 point if you have already used the free token.</li>
+            </ul>
+
+            <div class="instruction-figure">
+              <img
+                src="instructions/instructions_try_cancel.png"
+                class="example-image"
+              />
+            </div>
+
+            <ul>
+              <li>After checking the score of a path, you will be asked to select your final path for that round. The tested path will not be submitted, only the final path that you select for that round will.</li>
+            </ul>
+
+            <div class="instruction-figure">
+              <img
+                src="instructions/instructions_try_back.png"
+                class="example-image"
+              />
+            </div>
           `
         },
 
@@ -187,6 +249,12 @@ export default {
   height: auto;
   margin: 24px auto;
   object-fit: contain;
+}
+
+.instructions :deep(.instruction-figure) {
+  width: 60%;
+  margin: 24px auto;
+  text-align: center;
 }
 
 
