@@ -64,7 +64,24 @@ export default {
         },
 
         {
-          title: "The real game",
+          title: "Help during the game",
+          text: `
+            <p>You will start the game with <strong>two separate free tokens</strong> to get some help if you need it:</p>
+            <ul>
+              <li><strong>One token to read a rules summary.</strong></li>
+              <li><strong>One token to test a path's score before submitting your final path.</strong></li>
+            </ul>
+            <p><strong>After the free token is used, each further use of that type of help will cost you 1 point</strong>. The cost of help will be deducted from your score at the end of that round.</p>
+
+            <p><strong>To see the rules summary</strong>, click on the <strong>box at the bottom right</strong> of the page, then select <strong>Return to the game</strong> once you are done reviewing the rules.</p>
+
+            <p><strong>To test a path</strong>, click on the <strong>box at the bottom left</strong> of the page. Select a complete path and click <strong>Check score</strong> to see how many points that path would give you. If you cancel the test before checking the score, no token or extra point will be deducted from you.</p>
+            <p>After checking the score of a path, you will be asked to select your final path for that round. The tested path will not be submitted, only the final path that you select for that round will.</p>
+          `
+        },
+
+        {
+          title: "Final instructions",
           text: `
 
             <p>
@@ -83,7 +100,7 @@ export default {
 
             <p>
               Once you have seen the current score, in the following screen, you will be asked to <strong>express a rating on a slider from 0 to 100</strong>. In the first round, the slider starts at <strong>50</strong>.
-              In later rounds, it starts at <strong>your previous rating</strong>. During each round, you can either keep you previous rating or change it. <strong>The slider is used to evaluate your confidence in your knowledge of the rules</strong>. 
+              In later rounds, it starts at <strong>your previous rating</strong>. During each round, you can either keep your previous rating or change it. <strong>The slider is used to evaluate your confidence in the instructions you received</strong>. 
             </p>
 
             <p>
@@ -131,7 +148,7 @@ export default {
 }
 
 .instructions p {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.6;
   margin-bottom: 12px;
 }

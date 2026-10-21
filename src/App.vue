@@ -58,7 +58,12 @@ export default {
       mazeGame: {
         participant: 0,
         opponent: 0,
-        confidence: 50
+        confidence: 50,
+        instructionsFreeTokenUsed: false,
+        scoreFreeTokenUsed: false,
+        instructionsUsesTotal: 0,
+        scoreChecksTotal: 0,
+        firstRedSelection: null
       }
     };
   },

@@ -3,10 +3,10 @@ const trials = [
     trial_id: 1,
 
     maze: [
-      ["purple",  "white", "white", "purple"],
+      ["purple",  "white", "red", "purple"],
       ["green", "white", "orange", "white"],
       ["white",  "white", "orange", "yellow"],
-      ["orange", "white", "white", "white"]
+      ["orange", "red", "white", "blue"]
     ],
 
     start: [1, 0],
@@ -24,9 +24,9 @@ const trials = [
     trial_id: 2,
 
     maze: [
-      ["purple",  "white", "orange", "orange"],
-      ["white", "purple", "white", "white"],
-      ["white",  "white", "white", "white"],
+      ["purple",  "red", "orange", "orange"],
+      ["white", "purple", "white", "red"],
+      ["white",  "white", "blue", "white"],
       ["green", "white", "orange", "yellow"]
     ],
 
@@ -45,8 +45,8 @@ const trials = [
     trial_id: 3,
 
     maze: [
-      ["purple",  "white", "white", "purple"],
-      ["white", "white", "orange", "yellow"],
+      ["purple",  "red", "white", "purple"],
+      ["blue", "white", "orange", "yellow"],
       ["green",  "orange", "white", "white"],
       ["purple", "white", "white", "orange"]
     ],
@@ -66,9 +66,9 @@ const trials = [
     trial_id: 4,
 
     maze: [
-      ["white",  "white", "yellow", "purple"],
+      ["blue",  "white", "yellow", "purple"],
       ["white", "white", "white", "white"],
-      ["orange",  "white", "white", "white"],
+      ["orange",  "white", "white", "red"],
       ["green", "orange", "orange", "purple"]
     ],
 
@@ -89,8 +89,8 @@ const trials = [
     maze: [
       ["white",  "orange", "orange", "white"],
       ["green", "white", "white", "white"],
-      ["purple",  "white", "white", "yellow"],
-      ["white", "purple", "white", "orange"]
+      ["purple",  "blue", "white", "yellow"],
+      ["red", "purple", "red", "orange"]
     ],
 
     start: [1, 0],
@@ -108,9 +108,9 @@ const trials = [
     trial_id: 6,
 
     maze: [
-      ["orange",  "white", "white", "purple"],
-      ["purple", "white", "white", "yellow"],
-      ["white",  "white", "orange", "white"],
+      ["orange",  "red", "red", "purple"],
+      ["purple", "white", "blue", "yellow"],
+      ["red",  "white", "orange", "white"],
       ["green", "white", "white", "orange"]
     ],
 
@@ -129,8 +129,8 @@ const trials = [
     trial_id: 7,
 
     maze: [
-      ["green",  "white", "white", "white"],
-      ["purple", "white", "purple", "orange"],
+      ["green",  "white", "blue", "white"],
+      ["red", "white", "purple", "orange"],
       ["white",  "white", "white", "orange"],
       ["orange", "purple", "white", "yellow"]
     ],
@@ -151,9 +151,9 @@ const trials = [
 
     maze: [
       ["white",  "orange", "orange", "purple"],
-      ["white", "white", "white", "white"],
-      ["green",  "purple", "white", "yellow"],
-      ["white", "orange", "white", "purple"]
+      ["blue", "white", "blue", "white"],
+      ["green",  "purple", "red", "yellow"],
+      ["white", "orange", "white", "blue"]
     ],
 
     start: [2, 0],
@@ -174,7 +174,7 @@ const trials = [
       ["green",  "white", "white", "white"],
       ["white", "orange", "white", "white"],
       ["purple",  "white", "white", "orange"],
-      ["purple", "white", "white", "yellow"]
+      ["purple", "blue", "red", "yellow"]
     ],
 
     start: [0, 0],
@@ -192,9 +192,9 @@ const trials = [
     trial_id: 10,
 
     maze: [
-      ["green",  "white", "purple", "yellow"],
+      ["green",  "red", "purple", "yellow"],
       ["white", "white", "white", "white"],
-      ["white",  "white", "purple", "white"],
+      ["blue",  "white", "purple", "red"],
       ["purple", "orange", "white", "orange"]
     ],
 
@@ -214,8 +214,8 @@ const trials = [
 
     maze: [
       ["orange",  "white", "orange", "purple"],
-      ["white", "white", "white", "white"],
-      ["white",  "white", "white", "white"],
+      ["white", "red", "white", "red"],
+      ["white",  "white", "white", "blue"],
       ["green", "orange", "purple", "yellow"]
     ],
 
@@ -234,9 +234,9 @@ const trials = [
     trial_id: 12,
 
     maze: [
-      ["purple",  "white", "green", "white"],
-      ["orange", "white", "orange", "white"],
-      ["white",  "white", "white", "orange"],
+      ["purple",  "white", "green", "blue"],
+      ["orange", "white", "orange", "red"],
+      ["blue",  "white", "white", "orange"],
       ["purple", "purple", "white", "yellow"]
     ],
 
@@ -256,9 +256,9 @@ const trials = [
 
     maze: [
       ["orange",  "green", "purple", "orange"],
-      ["white", "white", "white", "purple"],
+      ["blue", "red", "white", "purple"],
       ["white",  "white", "purple", "yellow"],
-      ["white", "white", "orange", "white"]
+      ["red", "white", "orange", "white"]
     ],
 
     start: [0, 1],
@@ -277,9 +277,9 @@ const trials = [
 
     maze: [
       ["purple",  "white", "yellow", "orange"],
-      ["white", "white", "orange", "purple"],
-      ["white",  "orange", "white", "white"],
-      ["green", "white", "white", "purple"]
+      ["red", "white", "orange", "purple"],
+      ["white",  "orange", "white", "blue"],
+      ["green", "white", "red", "purple"]
     ],
 
     start: [3, 0],
@@ -297,10 +297,10 @@ const trials = [
     trial_id: 15,
 
     maze: [
-      ["white",  "white", "white", "white"],
+      ["red",  "white", "blue", "red"],
       ["green", "orange", "white", "orange"],
-      ["white",  "white", "white", "yellow"],
-      ["purple", "white", "white", "purple"]
+      ["white",  "white", "blue", "yellow"],
+      ["purple", "red", "white", "purple"]
     ],
 
     start: [1, 0],
@@ -318,10 +318,10 @@ const trials = [
     trial_id: 16,
 
     maze: [
-      ["green",  "white", "purple", "orange"],
+      ["green",  "red", "purple", "orange"],
       ["purple", "white", "white", "yellow"],
-      ["white",  "white", "purple", "white"],
-      ["orange", "white", "white", "orange"]
+      ["blue",  "white", "purple", "red"],
+      ["orange", "white", "blue", "orange"]
     ],
 
     start: [0, 0],

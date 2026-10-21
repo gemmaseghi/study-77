@@ -83,7 +83,7 @@
       </div>
 
       <button :disabled="!canSubmit" @click="submitQuestionnaire">
-        Avanti
+        Next
       </button>
     </div>
   </Screen>

@@ -143,7 +143,7 @@ export default {
 
             <p>
               Your goal is to reach the yellow cell while <strong>earning as many points as possible</strong>.
-              The following pages will explain how to move and how points are calculated.
+              Next, I will explain how to move and how points are calculated.
             </p>
           `
         },
