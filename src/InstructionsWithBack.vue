@@ -7,8 +7,32 @@
         <h2>Choose your instructor</h2>
 
         <p>
-          Welcome! In this experiment, you will play a game against another participant. You can choose whether you want Alice or Mike to explain the instructions to you. The person you don't choose will explain the instructions to your opponent. 
-          Click on Alice's or Mike's picture to select your instructor, then click "Next" to continue.
+          Welcome! In this experiment, you will play a game against another participant.
+        </p>
+
+        <p>
+          The participants that played this game before you are called Alice and Mike.
+          After they played, the task we gave to each of them was to write down the
+          instructions of the game in a very detailed way.
+        </p>
+
+        <p>
+          <strong>You can now choose whether you want to read Alice's or Mike's explanation of the game's rules.</strong>
+          Your opponent will read the instructions written by the person you didn't choose.
+        </p>
+
+        <p>
+          <strong>
+            At the end of the game, you will also be asked to write a summary of the
+            rules of the game for the next participants.
+          </strong>
+          You won't need to be as detailed as Alice and Mike, but you will need to
+          write in bullet points the main rules of the game.
+        </p>
+
+        <p>
+          Click on Alice's or Mike's picture to select whose instructions you want
+          to read, then click "Next" to continue.
         </p>
 
         <div class="instructor-options">
@@ -54,7 +78,7 @@
           />
 
           <span>
-            {{ selectedInstructor.name }} is explaining the game.
+            {{ selectedInstructor.name }}'s explanation of the game
           </span>
         </div>
 
@@ -328,8 +352,9 @@ export default {
 
 <style scoped>
 
-.instructor-selection {
-  text-align: center;
+.instructor-selection p {
+  margin: 0 0 1.2em;
+  line-height: 1.6;
 }
 
 .instructor-options {

@@ -2,11 +2,29 @@
   <Screen>
     <h2>Final Questionnaire</h2>
 
-    <!-- Step 1: Peculiar descriptions yes/no -->
+    <!-- Step 1: Rules summary -->
     <div v-if="step === 1" class="question">
       <p>
-        Did you notice anything unexpected as you were playing the game?
+        Please summarize the rules of the game in bullet points for the next participant.
       </p>
+
+      <textarea
+        v-model="strategyExplanation"
+        class="rules-summary"
+        aria-label="Summary of the game rules"
+      ></textarea>
+
+      <button
+        :disabled="!strategyExplanation.trim()"
+        @click="step = 2"
+      >
+        Next
+      </button>
+    </div>
+
+    <!-- Step 2: Peculiar events -->
+    <div v-if="step === 2" class="question">
+      <p>Did you notice anything peculiar while playing the game?</p>
 
       <div class="radio-container">
         <label>
@@ -20,32 +38,37 @@
         </label>
       </div>
 
-      <button :disabled="!peculiar" @click="step = 2">
+      <button
+        :disabled="!peculiar"
+        @click="step = peculiar === 'yes' ? 3 : 4"
+      >
         Next
       </button>
     </div>
 
-    <!-- Step 2: Peculiar explanation or strategy -->
-    <div v-if="step === 2" class="question">
-      <div v-if="peculiar === 'yes'">
-        <p>What did you notice?</p>
-        <textarea v-model="peculiarExplanation"></textarea>
-      </div>
-
-      <div v-if="peculiar === 'no'">
-        <p>Please, write here the rules you followed in order to get the maximum amount of points.</p>
-        <textarea v-model="strategyExplanation"></textarea>
-      </div>
-
-      <button :disabled="!canContinueFromStep2" @click="step = 3">
-        Next
-      </button>
-    </div>
-
-    <!-- Step 3: Suspicion yes/no -->
+    <!-- Step 3: Follow-up only for a yes response -->
     <div v-if="step === 3" class="question">
+      <p>What did you notice?</p>
+
+      <textarea
+        v-model="peculiarExplanation"
+        aria-label="What you noticed"
+      ></textarea>
+
+      <button
+        :disabled="!peculiarExplanation.trim()"
+        @click="step = 4"
+      >
+        Next
+      </button>
+    </div>
+
+    <!-- Step 4: Suspicion -->
+    <div v-if="step === 4" class="question">
       <p>
-        Did you ever suspect that the instructions you received were somehow defective and that your opponent knew more about the game than you did?
+        Did you ever suspect that the instructions you received were
+        somehow defective and that your opponent knew more about
+        the game than you did?
       </p>
 
       <div class="radio-container">
@@ -60,26 +83,31 @@
         </label>
       </div>
 
-      <button :disabled="!suspicion" @click="step = 4">
+      <button :disabled="!suspicion" @click="step = 5">
         Next
       </button>
     </div>
 
-    <!-- Step 4: Suspicion follow-up -->
-    <div v-if="step === 4" class="question">
-      <div v-if="suspicion === 'no'">
-        <p>Please explain why.</p>
-        <textarea v-model="suspicionNoExplanation"></textarea>
+    <!-- Step 5: Suspicion explanation -->
+    <div v-if="step === 5" class="question">
+      <div v-if="suspicion === 'yes'">
+        <p>
+          Please explain why and give examples from the game.
+        </p>
+
+        <textarea
+          v-model="suspicionYesExplanation"
+          aria-label="Reasons for your suspicion and examples"
+        ></textarea>
       </div>
 
-      <div v-if="suspicion === 'yes'">
+      <div v-else-if="suspicion === 'no'">
         <p>Please explain why.</p>
-        <textarea v-model="suspicionYesExplanation"></textarea>
 
-        <p class="followup-question">
-          Please, write some examples that made you suspicious.
-        </p>
-        <textarea v-model="suspicionExamples"></textarea>
+        <textarea
+          v-model="suspicionNoExplanation"
+          aria-label="Reasons for not suspecting this"
+        ></textarea>
       </div>
 
       <button :disabled="!canSubmit" @click="submitQuestionnaire">
@@ -92,59 +120,56 @@
 <script>
 export default {
   name: "Questionnaire",
+
   data() {
     return {
       step: 1,
+      strategyExplanation: "",
       peculiar: "",
       peculiarExplanation: "",
-      strategyExplanation: "",
       suspicion: "",
       suspicionYesExplanation: "",
-      suspicionNoExplanation: "",
-      suspicionExamples: ""
+      suspicionNoExplanation: ""
     };
   },
+
   computed: {
-    canContinueFromStep2() {
-      if (this.peculiar === "yes") {
-        return this.peculiarExplanation.trim();
-      }
-
-      if (this.peculiar === "no") {
-        return this.strategyExplanation.trim();
-      }
-
-      return false;
-    },
-
     canSubmit() {
-      if (this.suspicion === "yes") {
-        return (
-          this.suspicionYesExplanation.trim() &&
-          this.suspicionExamples.trim()
-        );
-      }
+      const rulesComplete = this.strategyExplanation.trim().length > 0;
 
-      if (this.suspicion === "no") {
-        return this.suspicionNoExplanation.trim();
-      }
+      const peculiarComplete =
+        this.peculiar === "no" ||
+        (this.peculiar === "yes" &&
+          this.peculiarExplanation.trim().length > 0);
 
-      return false;
+      const suspicionComplete =
+        (this.suspicion === "yes" &&
+          this.suspicionYesExplanation.trim().length > 0) ||
+        (this.suspicion === "no" &&
+          this.suspicionNoExplanation.trim().length > 0);
+
+      return rulesComplete && peculiarComplete && suspicionComplete;
     }
   },
+
   methods: {
     submitQuestionnaire() {
+      if (!this.canSubmit) return;
+
       this.$magpie.addTrialData({
         trial_type: "questionnaire",
 
+        strategy_explanation: this.strategyExplanation.trim(),
+
         peculiar_answer: this.peculiar,
-        peculiar_explanation: this.peculiarExplanation,
-        strategy_explanation: this.strategyExplanation,
+        peculiar_explanation: this.peculiarExplanation.trim(),
 
         suspicion_answer: this.suspicion,
-        suspicion_yes_explanation: this.suspicionYesExplanation,
-        suspicion_no_explanation: this.suspicionNoExplanation,
-        suspicion_examples: this.suspicionExamples
+        suspicion_yes_explanation: this.suspicionYesExplanation.trim(),
+        suspicion_no_explanation: this.suspicionNoExplanation.trim(),
+
+        // Examples are now included in suspicion_yes_explanation.
+        suspicion_examples: ""
       });
 
       this.$magpie.nextScreen();
@@ -168,6 +193,18 @@ textarea {
   width: 100%;
   max-width: 800px;
   min-height: 120px;
+  box-sizing: border-box;
+}
+
+textarea.rules-summary {
+  width: 100%;
+  max-width: 900px;
+  min-height: 350px;
+  padding: 15px;
+  font-size: 18px;
+  line-height: 1.6;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 button {
@@ -186,9 +223,5 @@ button {
   align-items: center;
   gap: 5px;
   margin: 0;
-}
-
-.followup-question {
-  margin-top: 25px;
 }
 </style>
